@@ -39,9 +39,13 @@ class _HomePageState extends State<HomePage> {
           AppBar(
             backgroundColor: Colors.transparent,
             title: Text(widget.title),
-          ),
+          ),       
+          SizedBox(height: 50,),
+          Text("data")   
         ],
       ),
+      extendBodyBehindAppBar: true,
+      
     );
   }
 }

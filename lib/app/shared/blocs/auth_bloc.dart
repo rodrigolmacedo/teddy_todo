@@ -41,7 +41,7 @@ class AuthBloc extends BlocBase {
 
   Future<bool> login(String email, String pass) async {
     String credentials = credentialsService.returnCredencial(email, pass);
-    token = await _repository.getToken(credentials);
+    token = await _repository.getToken(email, pass);
     await saveToken(token);
     _login$.add(true);
     return true;
@@ -61,7 +61,7 @@ class AuthBloc extends BlocBase {
 
   Future<TokenModel> refreshToken() async {
     TokenModel token = await loadToken();
-    return await _repository.getToken(token.credentials);
+    return await _repository.getToken("teste","teste");
   }
 
   Future<TokenModel> loadToken() async {
